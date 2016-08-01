@@ -5,7 +5,7 @@ import org.junit.Test;
 public class BubbleSortTest {
 
 	@Test
-	public void sorttest() {
+	public void sortTest() {
 		
 		
 		int[] arr = {4,2,0,3,9,2,5,17,11,15,19,16};
@@ -20,7 +20,7 @@ public class BubbleSortTest {
 	}
 	
 	@Test
-	public void sorttestOneElementArray() {
+	public void sortTestOneElementArray() {
 		
 		
 		int[] arr = {1};
@@ -34,7 +34,7 @@ public class BubbleSortTest {
 	}
 	
 	@Test
-	public void sorttestEmptyArray() {
+	public void sortTestEmptyArray() {
 		
 		
 		int[] arr = {};
