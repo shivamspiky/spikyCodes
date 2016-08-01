@@ -12,7 +12,37 @@ public class BubbleSortTest {
 		BubbleSort bubbleSort=new BubbleSort();
 		arr=bubbleSort.sort(arr);
 		
+		System.out.println("=============Sorted Array=============");
 		for(int i=0; i<arr.length;i++){
+			
+			System.out.println(arr[i] + " ");
+		}
+	}
+	
+	@Test
+	public void sorttestOneElementArray() {
+		
+		
+		int[] arr = {1};
+		BubbleSort bubbleSort=new BubbleSort();
+		arr=bubbleSort.sort(arr);
+		System.out.println("=============Sorted Array=============");
+		for(int i=0; i<arr.length;i++){
+			
+			System.out.println(arr[i] + " ");
+		}
+	}
+	
+	@Test
+	public void sorttestEmptyArray() {
+		
+		
+		int[] arr = {};
+		BubbleSort bubbleSort=new BubbleSort();
+		arr=bubbleSort.sort(arr);
+		System.out.println("=============Sorted Array=============");
+		for(int i=0; i<arr.length;i++){
+			
 			System.out.println(arr[i] + " ");
 		}
 	}
