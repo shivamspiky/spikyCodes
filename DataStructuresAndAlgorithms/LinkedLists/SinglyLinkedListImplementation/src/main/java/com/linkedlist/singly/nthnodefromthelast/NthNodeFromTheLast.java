@@ -22,9 +22,6 @@ public class NthNodeFromTheLast {
 			else{
 				return null;
 			}
-
-			
-
 		}
 
 		while (fastNode.getNext() != null) {
