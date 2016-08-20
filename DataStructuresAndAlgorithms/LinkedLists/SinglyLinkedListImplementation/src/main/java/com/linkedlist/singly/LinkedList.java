@@ -7,6 +7,7 @@ public class LinkedList {
 
 	public LinkedList() {
 		this.length = 0;
+		this.head = null;
 	}
 
 	public void setLength(int length) {
