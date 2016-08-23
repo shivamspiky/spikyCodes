@@ -16,7 +16,4 @@ public class MoveLastElementToFirst {
 		System.out.println("list after moving last element to first");
 		listList.printList();
 	}
-	
-	
-
 }
