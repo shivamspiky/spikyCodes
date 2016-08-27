@@ -30,9 +30,7 @@ public class TreeHeight {
 			}
 			else{
 				
-				if(current.getLeft() == null && current.getRight() == null){
-					return count;
-				}
+				
 				if(current.getLeft()!=null){
 					queue.add(current.getLeft());
 				}
