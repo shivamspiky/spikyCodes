@@ -11,7 +11,7 @@ public class SumOfElements {
 		return root.getData() + sum(root.getLeft()) + sum(root.getRight());
 	}
 	
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		BinaryTreeNode bnode1 = new BinaryTreeNode(1);
 		BinaryTreeNode bnode2 = new BinaryTreeNode(2);
 		BinaryTreeNode bnode3 = new BinaryTreeNode(3);
