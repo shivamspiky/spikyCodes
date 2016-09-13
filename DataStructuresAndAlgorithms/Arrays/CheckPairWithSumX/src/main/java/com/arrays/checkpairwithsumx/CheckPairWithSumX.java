@@ -10,7 +10,7 @@ public class CheckPairWithSumX {
 		int low = 0;
 		int high = arr.length-1;
 		int tempSum;
-		while(low <=  high){
+		while(low <  high){
 			
 			tempSum = arr[low] + arr[high];
 			if(tempSum == sum){
