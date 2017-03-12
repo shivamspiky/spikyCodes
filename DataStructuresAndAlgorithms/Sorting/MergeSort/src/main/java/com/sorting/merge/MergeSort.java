@@ -2,74 +2,63 @@ package com.sorting.merge;
 
 public class MergeSort {
 
-	public int[] sort(int[] arr) {
+	public void sort(int[] arr, int start, int end) {
 
-		int start=0;
-		int end=arr.length-1;
 		if (start < end) {
 
 			int mid = start + (end - start) / 2;
-			int[] arrLeft = new int[mid - start + 1];
-			int[] arrRight = new int[end - mid];
-
-			for (int i = 0; i < mid - start + 1; i++) {
-
-				arrLeft[i] = arr[start + i];
-			}
-
-			for (int i = 0; i < end - mid; i++) {
-
-				arrRight[i] = arr[mid + 1 + i];
-			}
-
-			sort(arrLeft);
-			sort(arrRight);
-			arr = merge(arr, arrLeft, arrRight);
-
+			sort(arr,start,mid);
+			sort(arr,mid+1,end);
+			merge(arr, start, end, mid);
 		}
-		return arr;
-
 	}
 
-	private int[] merge(int[] arr, int[] arrLeft, int[] arrRight) {
+	private void merge(int[] arr, int start, int end, int mid) {
 
-		int i = 0;
-		int j = 0;
-		int k = 0;
+		int[] leftArray= new int[mid-start+1];
+		int[] rightArray = new int[end-mid];
+		
+		for(int i=0,j=start;i<leftArray.length && j<=mid;i++,j++) {
+			leftArray[i]=arr[j];
+		}
+		
+		for(int i=0,j=mid+1;i<rightArray.length && j<=end;i++,j++) {
+			rightArray[i]=arr[j];
+		}
+		
+		int i=0;
+		int j=0;
+		int k=start;
+		while (i < leftArray.length && j < rightArray.length && k <=end) {
 
-		while (i < arrLeft.length && j < arrRight.length && k < arr.length) {
+			if (leftArray[i] <= rightArray[j]) {
 
-			if (arrLeft[i] <= arrRight[j]) {
-
-				arr[k] = arrLeft[i];
+				arr[k] = leftArray[i];
 				k++;
 				i++;
 			} else {
 
-				arr[k] = arrRight[j];
+				arr[k] = rightArray[j];
 				k++;
 				j++;
 			}
 		}
 
-		if (j >= arrRight.length) {
+		if (j >= rightArray.length) {
 
-			while (i < arrLeft.length && k < arr.length) {
-				arr[k] = arrLeft[i];
+			while (i < leftArray.length && k <=end) {
+				arr[k] =leftArray[i];
 				k++;
 				i++;
 			}
-		} else if (i >= arrLeft.length-1) {
+		} else if (i >= leftArray.length) {
 
-			while (j < arrRight.length && k < arr.length) {
-				arr[k] = arrRight[j];
+			while (j < rightArray.length && k <= end) {
+				arr[k] = rightArray[j];
 				k++;
 				j++;
 			}
 		}
-
-		return arr;
-
 	}
 
 }

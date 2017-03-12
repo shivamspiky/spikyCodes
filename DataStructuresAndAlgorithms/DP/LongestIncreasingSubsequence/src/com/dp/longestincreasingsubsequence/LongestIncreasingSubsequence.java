@@ -4,6 +4,7 @@ public class LongestIncreasingSubsequence {
 	public int longest(int[] arr) {
 		int[] subsequenceLength  = new int [arr.length];
 		subsequenceLength[0]=1;
+		int max = subsequenceLength[0];
 		for(int i=1;i<arr.length;i++) {
 			int temp = 0;
 			for(int j=i-1;j>=0;j--) {
@@ -12,11 +13,9 @@ public class LongestIncreasingSubsequence {
 				}
 			}
 			subsequenceLength[i]=1+temp;
-		}
-		int max = subsequenceLength[0];
-		for(int i=1;i<subsequenceLength.length;i++) {
 			max= Math.max(max,subsequenceLength[i]);
 		}
+		
 		return max;
 	}
 	

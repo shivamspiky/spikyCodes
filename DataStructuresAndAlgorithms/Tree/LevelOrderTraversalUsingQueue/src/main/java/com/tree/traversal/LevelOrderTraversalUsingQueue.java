@@ -7,12 +7,21 @@ import com.tree.node.BinaryTreeNode;
 
 public class LevelOrderTraversalUsingQueue {
 
-	public void levelOrderTraversal(BinaryTreeNode root) {
+	public int levelOrderTraversal(BinaryTreeNode root) {
 
+		if(root==null) {
+			return Integer.MIN_VALUE;
+		}
 		Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
+		int max = Integer.MIN_VALUE;
+		
 		queue.add(root);
+		
 		while (!queue.isEmpty()) {
 			BinaryTreeNode temp = queue.remove();
+			if(temp.getData() > max) {
+				max = temp.getData();
+			}
 			System.out.println(temp.getData());
 
 			if (temp.getLeft() != null) {
@@ -23,6 +32,9 @@ public class LevelOrderTraversalUsingQueue {
 				queue.add(temp.getRight());
 			}
 		}
+		
+		return max;
+		
 	}
 	
 	public static void main(String args[]){
@@ -41,7 +53,8 @@ public class LevelOrderTraversalUsingQueue {
 		bnode4.setLeft(bnode6);
 		
 		LevelOrderTraversalUsingQueue levelOrderTraversalUsingQueue = new LevelOrderTraversalUsingQueue();
-		levelOrderTraversalUsingQueue.levelOrderTraversal(bnode1);
+		int max = levelOrderTraversalUsingQueue.levelOrderTraversal(bnode2);
+		System.out.println("Max element : "+max);
 		
 	}
 

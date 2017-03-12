@@ -32,7 +32,5 @@ public class CountingSort {
 
 			arr[i] = outputArray[i];
 		}
-
 	}
-
 }

@@ -11,10 +11,11 @@ public class MakingChange {
 			int j;
 			int temp = Integer.MAX_VALUE;
 			for(j = 0 ; j< denominations.length ; j++) {
-				if(i-denominations[j] < 0) {
+				if(i-denominations[j] < 0) { // denominations array needn't be sorted
 					continue;
 				}
-				used = true;
+				used = true;			// to return right value in scenario where C is lesser than all denominations.
+										// need to return zero in that scenario. without used flag we'll be returning 1
 				temp = Math.min(temp,min[i-denominations[j]]);
 			} 
 			if(used) {

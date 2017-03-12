@@ -9,10 +9,10 @@ public class MergeSortTest {
 
 		int[] arr = { 1, 3, 3, 2, 1, 0, 89, 4, 23, 39, 23, 23442, 86 };
 		MergeSort mergeSort = new MergeSort();
-		mergeSort.sort(arr);
+		mergeSort.sort(arr,0,arr.length-1);
 
 		System.out.println("============Sorted Array===============");
-		for (int i = 0; i < arr.length - 1; i++) {
+		for (int i = 0; i < arr.length;i++) {
 			System.out.println(arr[i] + " ");
 		}
 	}

@@ -10,6 +10,7 @@ public class LongestCommonSubsequence {
 				.length() + 1];
 		int i, j;
 		
+		
 		for (i = str1.length(); i >= 0; i--) {
 			for (j = str2.length(); j >= 0; j--) {
 				if(i==str1.length() || j==str2.length()){
@@ -17,6 +18,8 @@ public class LongestCommonSubsequence {
 				}
 				else if (str1.charAt(i) == str2.charAt(j)) {
 					longestCommonSubsequence[i][j] = 1 + longestCommonSubsequence[i + 1][j + 1];
+					
+					
 				} else {
 					longestCommonSubsequence[i][j] = Math.max(
 							longestCommonSubsequence[i + 1][j],
@@ -25,13 +28,15 @@ public class LongestCommonSubsequence {
 			}
 		}
 		printSubsequence(longestCommonSubsequence, str1, str2);
+		
 		return longestCommonSubsequence[0][0];
 	}
 
 	private void printSubsequence(final int[][] longestCommonSubsequenceLength,
 			String str1, String str2) {
 		
-		for(int i=0,j=0;i<str1.length() && j<str2.length();){
+		int i=0,j=0;
+		while(i<str1.length() && j<str2.length()){
 			
 				if(str1.charAt(i) == str2.charAt(j)){
 					System.out.print(str1.charAt(i));
@@ -55,6 +60,6 @@ public class LongestCommonSubsequence {
 		int result = longestCommonSubsequence.longestSubsequenceLength(str1,
 				str2);
 		System.out.println("\n"+result);
-
+		System.out.println("".length());
 	}
 }

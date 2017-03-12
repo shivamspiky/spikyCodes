@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="CheckArrayElementsAreConsecutive/src"/>
+	<classpathentry kind="src" path="CheckPairWithSumX/src/main/java"/>
+	<classpathentry kind="src" path="DuplicateNumbers/src"/>
+	<classpathentry kind="src" path="EquilibriumIndex/src"/>
+	<classpathentry kind="src" path="LeadersInArray/src/main/java"/>
+	<classpathentry kind="src" path="MajorityElement/src/main/java"/>
+	<classpathentry kind="src" path="MaxDifferenceWithLargerElementOccuringAfterSmaller/src/main/java"/>
+	<classpathentry kind="src" path="MaximumLengthBitonicSubArray/src"/>
+	<classpathentry kind="src" path="MaxJminusI/src"/>
+	<classpathentry kind="src" path="MaxSumWithNoTwoElementsAdjacent/src/main/java"/>
+	<classpathentry kind="src" path="MergeMArrayIntoMplusNArray/src/main/java"/>
+	<classpathentry kind="src" path="NumberWithOddFrequency/src/main/java"/>
+	<classpathentry kind="src" path="ProductArrayPuzzle/src"/>
+	<classpathentry kind="src" path="ReverseArray/src/main/java"/>
+	<classpathentry kind="src" path="RotateArray/src/main/java"/>
+	<classpathentry kind="src" path="Segregate0sAnd1s/src/main/java"/>
+	<classpathentry kind="src" path="SegregateEvenAndOdd/src/main/java"/>
+	<classpathentry kind="src" path="SmallestDifference/src"/>
+	<classpathentry kind="src" path="SmallestMissingNumber/src"/>
+	<classpathentry kind="src" path="UnionAndIntersectionOfTwoElements/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="UnionAndIntersectionOfTwoElements/bin"/>
+</classpath>

@@ -30,7 +30,15 @@ public class TreeHeight {
 			}
 			else{
 				
+				/*
+				 * 
+				 * only modification required to return minimum depth. Minimum depth is depth when
+				 * we first encounter a leaf node 
+				 * */
 				
+				if (current.getLeft()==null && current.getRight()==null) {
+					 		break;	
+					  }
 				if(current.getLeft()!=null){
 					queue.add(current.getLeft());
 				}

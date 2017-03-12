@@ -32,7 +32,6 @@ public class MinimumMatrixChainMultiplication {
 			System.out.print(i);
 			return ;
 		}
-		
 		System.out.print("(");
 		int k = S[i][j];
 		printParenthesis(S,i,k);
@@ -44,6 +43,7 @@ public class MinimumMatrixChainMultiplication {
 		MinimumMatrixChainMultiplication matrix = new MinimumMatrixChainMultiplication();
 		int[] P = {40, 20, 30, 10, 30};
 		System.out.println(matrix.minimumMultiplications(P));
+		
+		System.out.println("XXDXX".matches("X(.*)X(.*)X(.*)X"));
 	}
-
 }

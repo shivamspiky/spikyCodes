@@ -27,5 +27,23 @@ public class IterativeBinarySearch {
 		
 		return -1;
 	}
+	
+	public int recursiveBinarySearch(int[] arr,int start, int end,int key) {
+		
+		if(start > end) {
+			return -1;
+		}
+		
+		int mid = start + (end-start)/2;
+		
+		if(arr[mid]==key) {
+			return mid;
+		}
+		else if(arr[mid] < key) {
+			return recursiveBinarySearch(arr,mid+1,end,key);
+		} else {
+			return recursiveBinarySearch(arr,start,mid-1,key);
+		}
+	}
 
 }

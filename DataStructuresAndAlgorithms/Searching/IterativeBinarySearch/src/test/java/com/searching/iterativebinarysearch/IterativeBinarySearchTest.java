@@ -10,7 +10,7 @@ public class IterativeBinarySearchTest {
 		IterativeBinarySearch iterativeBinarySearch = new IterativeBinarySearch();
 		
 		int[] arr =  {2,3,5,6,6,757,2508};
-		int index = iterativeBinarySearch.binarySearch(arr, 757);
+		int index = iterativeBinarySearch.recursiveBinarySearch(arr, 0, arr.length-1, 759);
 		System.out.println(index);
 	}
 
