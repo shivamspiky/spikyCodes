@@ -30,10 +30,30 @@ public class MaxSumWithNoTwoElementsAdjacent {
 		return Math.max(a,b);
 	}
 	
+	public int maxSumOptimised(int[] arr) {
+		
+		if(arr.length==1) {
+			return arr[0];
+		}
+		if(arr.length==2) {
+			return Math.max(arr[0],arr[1]);
+		}
+		int prev1=Math.max(arr[0],arr[1]), prev2=arr[0];
+		int maxSum=0;
+		for(int i=2;i<arr.length;i++) {
+			maxSum = Math.max(prev1,prev2+arr[i]);
+			prev1=maxSum;
+			prev2 = prev1;
+		}
+		
+		return maxSum;
+	}
+	
 	public static void main(String args[]){
-		int arr[] = {-1,-2,-3,-4,-6,-7,-8,-3,-9,-11};
+		int arr[] = {-1,2,-3,-4,6,-7,8,-3,-9,-11};
 		MaxSumWithNoTwoElementsAdjacent maxSumWithNoTwoElementsAdjacent = new MaxSumWithNoTwoElementsAdjacent();
-		int result = maxSumWithNoTwoElementsAdjacent.maxSum(arr);
-		System.out.println(result);
+		int result1 = maxSumWithNoTwoElementsAdjacent.maxSum(arr);
+		int result = maxSumWithNoTwoElementsAdjacent.maxSumOptimised(arr);
+		System.out.println(result+ " " + result1);
 	}
 }
