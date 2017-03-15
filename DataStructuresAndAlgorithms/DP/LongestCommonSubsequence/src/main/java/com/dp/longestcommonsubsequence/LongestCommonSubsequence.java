@@ -6,14 +6,17 @@ public class LongestCommonSubsequence {
 		if (str1 == null || str2 == null || str1.isEmpty() || str2.isEmpty()) {
 			return 0;
 		}
-		int[][] longestCommonSubsequence = new int[str1.length() + 1][str2
-				.length() + 1];
+		
+		/*calling these functions every time will increase complexity as it is not an attribute
+		 * like length of array but function which will take O(n) time to solve*/
+		int n = str1.length();
+		int m = str2.length();
+		int[][] longestCommonSubsequence = new int[n + 1][m + 1];
 		int i, j;
 		
-		
-		for (i = str1.length(); i >= 0; i--) {
-			for (j = str2.length(); j >= 0; j--) {
-				if(i==str1.length() || j==str2.length()){
+		for (i = n; i >= 0; i--) {
+			for (j = m; j >= 0; j--) {
+				if(i==n || j==m){
 					longestCommonSubsequence[i][j]=0;
 				}
 				else if (str1.charAt(i) == str2.charAt(j)) {
@@ -60,6 +63,5 @@ public class LongestCommonSubsequence {
 		int result = longestCommonSubsequence.longestSubsequenceLength(str1,
 				str2);
 		System.out.println("\n"+result);
-		System.out.println("".length());
 	}
 }
