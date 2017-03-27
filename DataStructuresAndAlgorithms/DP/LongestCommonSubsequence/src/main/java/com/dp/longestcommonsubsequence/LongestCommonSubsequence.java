@@ -14,12 +14,9 @@ public class LongestCommonSubsequence {
 		int[][] longestCommonSubsequence = new int[n + 1][m + 1];
 		int i, j;
 		
-		for (i = n; i >= 0; i--) {
-			for (j = m; j >= 0; j--) {
-				if(i==n || j==m){
-					longestCommonSubsequence[i][j]=0;
-				}
-				else if (str1.charAt(i) == str2.charAt(j)) {
+		for (i = n-1; i >= 0; i--) {
+			for (j = m-1; j >= 0; j--) {
+				if (str1.charAt(i) == str2.charAt(j)) {
 					longestCommonSubsequence[i][j] = 1 + longestCommonSubsequence[i + 1][j + 1];
 					
 					
