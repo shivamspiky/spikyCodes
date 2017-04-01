@@ -27,6 +27,9 @@ public class BinomialCoefficient {
 		return coefficients[n][k];
 	}
 	
+	/*better solution through maths as we can find n! and k! and n-k! and
+	 * then n!/k!*(n-1)!  complexity in this case is O(n)*/
+	
 	public static void main(String[] args) {
 		BinomialCoefficient binomialCoefficient = new BinomialCoefficient();
 		System.out.println(binomialCoefficient.findBinomialCoefficient(6, 4));
