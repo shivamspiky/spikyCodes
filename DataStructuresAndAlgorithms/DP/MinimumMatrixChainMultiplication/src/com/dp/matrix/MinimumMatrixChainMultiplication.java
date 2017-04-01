@@ -2,6 +2,25 @@ package com.dp.matrix;
 
 public class MinimumMatrixChainMultiplication {
 	
+	
+	public int recursiveMinMultiplication(int[] P, int i, int j) {
+		if(i==j) {
+			return 0;
+		}
+		
+		int min = Integer.MAX_VALUE;
+		int count=0;
+		
+		for(int k=i;k<=j-1;k++) {
+			count = P[i-1]*P[k]*P[j] + recursiveMinMultiplication(P,i,k) +
+					recursiveMinMultiplication(P,k+1,j);
+			if(count<min) {
+				min =count;
+			}
+		}
+		
+		return min;
+	}
 	public int minimumMultiplications(int[] P) {
 		int n = P.length;
 		int [][] M = new int[n][n];
@@ -44,6 +63,7 @@ public class MinimumMatrixChainMultiplication {
 		int[] P = {40, 20, 30, 10, 30};
 		System.out.println(matrix.minimumMultiplications(P));
 		
+		System.out.println(matrix.recursiveMinMultiplication(P, 1, 4));
 		System.out.println("XXDXX".matches("X(.*)X(.*)X(.*)X"));
 	}
 }
