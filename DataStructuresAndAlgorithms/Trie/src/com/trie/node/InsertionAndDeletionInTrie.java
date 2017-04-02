@@ -53,9 +53,11 @@ public class InsertionAndDeletionInTrie {
 		insertionAndDeletionInTrie.insert(root, "three");
 		insertionAndDeletionInTrie.insert(root, "there");
 		insertionAndDeletionInTrie.insert(root, "their");
+		insertionAndDeletionInTrie.insert(root, "");
 		
 		System.out.println(insertionAndDeletionInTrie.search(root,"there"));
 		System.out.println(insertionAndDeletionInTrie.search(root,"all"));
 		System.out.println(insertionAndDeletionInTrie.search(root,"theirs"));
+		System.out.println(insertionAndDeletionInTrie.search(root,""));
 	}
 }
