@@ -1,6 +1,6 @@
 package com.trie.node;
 
-public class InsertionAndDeletionInTrie {
+public class InsertionAndSearchInTrie {
 
 	public void insert(TrieNode root, String str) {
 		
@@ -47,7 +47,7 @@ public class InsertionAndDeletionInTrie {
 	public static void main(String[] args) {
 		
 		TrieNode root = new TrieNode();
-		InsertionAndDeletionInTrie insertionAndDeletionInTrie = new InsertionAndDeletionInTrie();
+		InsertionAndSearchInTrie insertionAndDeletionInTrie = new InsertionAndSearchInTrie();
 		insertionAndDeletionInTrie.insert(root, "als");
 		insertionAndDeletionInTrie.insert(root, "all");
 		insertionAndDeletionInTrie.insert(root, "three");
