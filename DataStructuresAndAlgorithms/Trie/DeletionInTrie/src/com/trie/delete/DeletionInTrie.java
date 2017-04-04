@@ -36,9 +36,8 @@ public class DeletionInTrie {
 		if(flag) {
 			return true;
 		}
-		TrieNode[] children = node.getChildren();
-		children[TrieNode.alphabetToIndex(str.charAt(index))] =null;
-		node.setChildren(children);
+		
+		node.getChildren()[TrieNode.alphabetToIndex(str.charAt(index))] =null;
 		
 		if(node.isEndOfString()) {
 			return true;
@@ -116,7 +115,7 @@ public void insert(TrieNode root, String str) {
 		System.out.println(insertionAndDeletionInTrie.search(root,"their"));
 //		insertionAndDeletionInTrie.delete(root, "als");
 //		insertionAndDeletionInTrie.delete(root, "");
-		insertionAndDeletionInTrie.delete(root, "theirs");
+		insertionAndDeletionInTrie.delete(root, "there");
 		System.out.println("Next iteration starts after deletion");
 		System.out.println(insertionAndDeletionInTrie.search(root,"there"));
 		System.out.println(insertionAndDeletionInTrie.search(root,"all"));
