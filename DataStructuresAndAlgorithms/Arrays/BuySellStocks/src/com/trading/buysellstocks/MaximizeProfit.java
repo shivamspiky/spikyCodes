@@ -13,16 +13,16 @@ public class MaximizeProfit {
 		for(int i=1;i<arr.length;i++) {
 			
 			int diff = arr[i]-min;
-			if(diff < max_diff) {
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+			
+			if(max_diff > 0 && diff < max_diff) {
 				profit +=max_diff;
 				max_diff = Integer.MIN_VALUE;
 				min = arr[i];
 			}else {
 				max_diff = diff;
-			}
-			
-			if(arr[i] < min) {
-				min = arr[i];
 			}
 		}
 		
@@ -35,7 +35,7 @@ public class MaximizeProfit {
 	
 	public static void main(String[] args) {
 		MaximizeProfit maxProfit = new MaximizeProfit();
-		int[] arr = {110, 80, 60,80,120,80,72,80};
+		int[] arr = {100,70,87,10};
 		System.out.println(maxProfit.maxProfit(arr));
 	}
 }
