@@ -57,5 +57,42 @@ public class TwoElementSumClosestToZero {
 		}
 
 	}
+	
+	public void optimizedClosestToZero(int[] arr) {
+		if(arr.length<2) {
+			System.out.println("Need at leaset two elements");
+		}
+		
+		
+		Arrays.sort(arr);
+		int first=-1;
+		int second=-1;
+		int closestSum=Integer.MAX_VALUE;
+		
+		int l=0;
+		int r=arr.length-1;
+		while(l<r) {
+			int tempSum = Math.abs(arr[l] + arr[r]);
+			if(Math.abs(tempSum) < closestSum)  {
+				closestSum = tempSum;
+				first = arr[l];
+				second = arr[r];
+			}
+			
+			if(tempSum < closestSum) {
+				l++;
+			} else {
+				r--;
+			}
+		}
+		System.out.println("Two Required elements are " + first + " and " + second);
+	}
+	
+	public static void main(String[] args) {
+		TwoElementSumClosestToZero twoElementSumClosestToZero = new TwoElementSumClosestToZero();
+		int[] arr = { 1, 60, -10, 70, -80, 85 };
+		
+		twoElementSumClosestToZero.optimizedClosestToZero(arr);
+	}
 
 }
