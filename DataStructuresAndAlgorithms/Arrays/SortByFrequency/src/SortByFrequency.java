@@ -8,6 +8,10 @@ public class SortByFrequency {
 
 	public void sort(int[] arr) {
 		
+		/*if linkedhashmap is not allowed we can store frequency as well as index
+		 * in normal hashmap and in Element store key value and index
+		 * and in case of comaparTo for elements with same value
+		 * we can return on the basis of index to maintain stability*/
 		LinkedHashMap<Integer,Integer> map = new LinkedHashMap<Integer, Integer>();
 		
 		countElements(map,arr);
