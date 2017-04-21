@@ -72,17 +72,20 @@ public class TwoElementSumClosestToZero {
 		int l=0;
 		int r=arr.length-1;
 		while(l<r) {
-			int tempSum = Math.abs(arr[l] + arr[r]);
-			if(Math.abs(tempSum) < closestSum)  {
+			int tempSum = arr[l] + arr[r];
+			if(Math.abs(tempSum) < Math.abs(closestSum))  {
 				closestSum = tempSum;
 				first = arr[l];
 				second = arr[r];
 			}
 			
-			if(tempSum < closestSum) {
+			if(tempSum < 0) {
 				l++;
-			} else {
+			} else if(tempSum >0){
 				r--;
+			} else {
+				
+				break;
 			}
 		}
 		System.out.println("Two Required elements are " + first + " and " + second);
@@ -90,7 +93,7 @@ public class TwoElementSumClosestToZero {
 	
 	public static void main(String[] args) {
 		TwoElementSumClosestToZero twoElementSumClosestToZero = new TwoElementSumClosestToZero();
-		int[] arr = { 1, 60, -10, 70, -80, 85 };
+		int[] arr = { 1, 60, -10, 10,14, -80, 85 };
 		
 		twoElementSumClosestToZero.optimizedClosestToZero(arr);
 	}
