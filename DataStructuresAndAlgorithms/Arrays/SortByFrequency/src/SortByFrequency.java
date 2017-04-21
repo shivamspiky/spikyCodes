@@ -11,15 +11,15 @@ public class SortByFrequency {
 		LinkedHashMap<Integer,Integer> map = new LinkedHashMap<Integer, Integer>();
 		
 		countElements(map,arr);
-		System.out.println(map);
+		//System.out.println(map);
 		Element[] comArray = new Element[map.keySet().size()];
 		int i=0;
 		for(Integer a: map.keySet()) {
 			comArray[i]=new Element(a,map.get(a));
 			i++;
 		}
-		Arrays.sort(comArray, new Element());
-		System.out.println(comArray.toString());
+		Arrays.sort(comArray);
+		//System.out.println(comArray.toString());
 		i=0;
 		for(int j=0;j<comArray.length;j++) {
 			Element e= comArray[j];
@@ -52,7 +52,7 @@ public class SortByFrequency {
 	}
 }
 
-class Element implements Comparator<Element>{
+class Element implements Comparable<Element>{
 	int key;
 	int value;
 	
@@ -63,13 +63,7 @@ class Element implements Comparator<Element>{
 	public Element(){}
 	
 	@Override
-	public int compare(Element paramT1, Element paramT2) {
-		if(paramT1.value > paramT2.value) {
-			return -1;
-		} else if(paramT1.value < paramT2.value) {
-			return 1;
-		}else  {
-			return 0;
-		}
+	public int compareTo(Element paramT2) {
+		return paramT2.value - this.value;
 	}
 }
