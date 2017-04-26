@@ -58,6 +58,11 @@ public class Graph {
 	}
 	
 	private void BFSUtil(int s, boolean[] visited) {
+		
+		/*very similar to level order traversal.
+		 * Only difference is instead of left and right nodes
+		 * getting inserted in queue.We are inserting all unvisited nodes
+		 * from that */
 		Queue<Integer> queue = new LinkedList<Integer>();
 		queue.add(s);
 		visited[s] = true;
