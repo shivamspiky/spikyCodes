@@ -8,22 +8,20 @@ public class InOrderTraversalIterative {
 		if (root == null) {
 			return;
 		}
-		boolean flag = false;
+		
 		BinaryTreeNode currentNode = root;
 		Stack<BinaryTreeNode> stack = new Stack<BinaryTreeNode>();
-		while (!flag) {
+		while (currentNode!=null || !stack.isEmpty()) {
 			if (currentNode != null) {
 				stack.push(currentNode);
 				currentNode = currentNode.getLeft();
-			} else {
-				if (stack.isEmpty()) {
-					flag = true;
-				} else {
+			} 
+			else {
 					currentNode = stack.pop();
 					System.out.println(currentNode.getData());
 					currentNode=currentNode.getRight();
 				}
-			}
+			
 		}
 	}
 
