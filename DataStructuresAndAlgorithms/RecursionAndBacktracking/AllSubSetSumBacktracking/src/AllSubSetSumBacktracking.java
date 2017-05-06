@@ -17,7 +17,8 @@ public class AllSubSetSumBacktracking {
 		if(k==0) {
 			printList(list);
 		}
-	
+	/*can be optimized if we sort the input and test only upto keys which are smaller than or equal to 
+	 * k*/
 		for(int i=index;i<arr.length ;i++) {
 			if(arr[i] <=k) {
 				list.add(arr[i]);

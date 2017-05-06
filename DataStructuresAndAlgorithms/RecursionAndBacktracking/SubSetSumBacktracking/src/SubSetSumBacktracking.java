@@ -16,7 +16,10 @@ public class SubSetSumBacktracking {
 		if(k==0) {
 			return true;
 		}
-	
+	/*can be optimized if we sort the input array and then in test condition of for loop
+	 * also check whether current element is smaller than or equal to k because elements 
+	 * after current element is definitely going to greater than k if current element is
+	 * greater than k*/
 		for(int i=index;i<arr.length;i++) {
 			if(arr[i] <=k){
 				list.add(arr[i]);
