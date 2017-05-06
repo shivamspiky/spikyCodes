@@ -3,8 +3,10 @@ public class NQueenProblem {
 	
 	public void placeQueens(int n) {
 		int[][] matrix = new int[n][n];
-		placeQueensUtil(matrix, 0);
-	}
+		if(placeQueensUtil(matrix, 0)) {
+			print(matrix);
+		}
+ 	}
 
 	private boolean placeQueensUtil(int[][] matrix, int col) {
 		if(matrix.length != matrix[0].length) {
@@ -12,7 +14,7 @@ public class NQueenProblem {
 		}
 		
 		if(col==matrix[0].length) {
-			print(matrix);
+			
 			return true;
 		}
 		

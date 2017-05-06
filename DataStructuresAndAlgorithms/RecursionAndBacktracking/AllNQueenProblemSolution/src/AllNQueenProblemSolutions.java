@@ -3,7 +3,10 @@ public class AllNQueenProblemSolutions {
 	int count=0;
 	public void placeQueens(int n) {
 		int[][] matrix = new int[n][n]; //  choose boolean instead of int matrix
-		placeQueensUtil(matrix, 0);
+		placeQueensUtil(matrix, 0); 
+		if(count==0) {
+			System.out.println("Solution doesn't exist");
+		}
 	}
 
 	private void placeQueensUtil(int[][] matrix, int col) {
@@ -24,9 +27,6 @@ public class AllNQueenProblemSolutions {
 				matrix[i][col]=0;
 			}
 		}
-		
-		
-		
 	} 
 	
 	private void print(int[][] matrix) {
