@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
+/*better solution of this problem is through dynamic programming*/
 public class SubSetSumBacktracking {
 	
 	public void subSetSum(int[] arr, int k) {
