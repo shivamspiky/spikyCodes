@@ -6,6 +6,7 @@ public class AllSubSetSumBacktracking {
 	int count=0;
 	public void subSetSum(int[] arr, int k) {
 		List<Integer> list = new ArrayList<Integer>();
+		//Arrays.sort(arr); //to optimize
 		subSetSumUtil(arr,0,k,list);
 		
 		if(count==0) {
@@ -18,7 +19,15 @@ public class AllSubSetSumBacktracking {
 			printList(list);
 		}
 	/*can be optimized if we sort the input and test only upto keys which are smaller than or equal to 
-	 * k*/
+	 * k
+	 * to optimize
+	 * 
+	 * for(int i=index;i<arr.length && arr[i] <=k ;i++) {
+			
+			list.add(arr[i]);
+			subSetSumUtil(arr,i+1,k-arr[i],list);		
+			list.remove(list.size()-1);
+		}*/
 		for(int i=index;i<arr.length ;i++) {
 			if(arr[i] <=k) {
 				list.add(arr[i]);

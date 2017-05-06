@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SubSetSumBacktracking {
 	
 	public void subSetSum(int[] arr, int k) {
 		List<Integer> list = new ArrayList<Integer>();
+		//Arrays.sort(arr); // to optimize
 		if(subSetSumUtil(arr,0,k,list)) {
 			printList(list);
 		}else{
@@ -19,7 +21,22 @@ public class SubSetSumBacktracking {
 	/*can be optimized if we sort the input array and then in test condition of for loop
 	 * also check whether current element is smaller than or equal to k because elements 
 	 * after current element is definitely going to greater than k if current element is
-	 * greater than k*/
+	 * greater than k
+	 * 
+	 * 
+	 * 
+	 * for(int i=index;i<arr.length && arr[i] <=k;i++) {
+			
+			list.add(arr[i]);
+			if(subSetSumUtil(arr,i+1,k-arr[i],list)){
+				return true;
+			}
+			list.remove(list.size()-1);
+			
+			
+		}
+		return false;*/
+		
 		for(int i=index;i<arr.length;i++) {
 			if(arr[i] <=k){
 				list.add(arr[i]);
