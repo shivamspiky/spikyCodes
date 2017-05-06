@@ -16,13 +16,15 @@ public class AllSubSetSumBacktracking {
 	private void subSetSumUtil(int[] arr, int index, int k, List<Integer> list) {
 		if(k==0) {
 			printList(list);
-			return;
 		}
 	
-		for(int i=index;i<arr.length && arr[i] <=k;i++) {
-			list.add(arr[i]);
-			subSetSumUtil(arr,i+1,k-arr[i],list);		
-			list.remove(list.size()-1);
+		for(int i=index;i<arr.length ;i++) {
+			if(arr[i] <=k) {
+				list.add(arr[i]);
+				subSetSumUtil(arr,i+1,k-arr[i],list);		
+				list.remove(list.size()-1);
+			}
+			
 		}
 		
 	}
@@ -38,7 +40,7 @@ public class AllSubSetSumBacktracking {
 	
 	public static void main(String[] args) {
 		AllSubSetSumBacktracking subSetSumBacktracking = new AllSubSetSumBacktracking();
-		int[] arr = {10, 7, 5, 18, 12, 20, 15};
+		int[] arr = {10, 7, 5, 18, 12, 20, 15,0};
 		subSetSumBacktracking.subSetSum(arr, 35);
 	}
 }

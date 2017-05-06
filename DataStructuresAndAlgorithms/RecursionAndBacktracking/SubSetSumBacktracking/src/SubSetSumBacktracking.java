@@ -17,12 +17,15 @@ public class SubSetSumBacktracking {
 			return true;
 		}
 	
-		for(int i=index;i<arr.length && arr[i] <=k;i++) {
-			list.add(arr[i]);
-			if(subSetSumUtil(arr,i+1,k-arr[i],list)){
-				return true;
+		for(int i=index;i<arr.length;i++) {
+			if(arr[i] <=k){
+				list.add(arr[i]);
+				if(subSetSumUtil(arr,i+1,k-arr[i],list)){
+					return true;
+				}
+				list.remove(list.size()-1);
 			}
-			list.remove(list.size()-1);
+			
 		}
 		return false;
 	}
