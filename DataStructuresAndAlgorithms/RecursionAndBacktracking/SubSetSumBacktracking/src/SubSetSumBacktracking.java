@@ -19,7 +19,7 @@ public class SubSetSumBacktracking {
 	
 		for(int i=index;i<arr.length && arr[i] <=k;i++) {
 			list.add(arr[i]);
-			if(subSetSumUtil(arr,index+1,k-arr[i],list)){
+			if(subSetSumUtil(arr,i+1,k-arr[i],list)){
 				return true;
 			}
 			list.remove(list.size()-1);

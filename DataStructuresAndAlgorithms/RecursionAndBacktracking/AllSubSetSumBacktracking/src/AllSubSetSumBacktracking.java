@@ -16,11 +16,12 @@ public class AllSubSetSumBacktracking {
 	private void subSetSumUtil(int[] arr, int index, int k, List<Integer> list) {
 		if(k==0) {
 			printList(list);
+			return;
 		}
 	
 		for(int i=index;i<arr.length && arr[i] <=k;i++) {
 			list.add(arr[i]);
-			subSetSumUtil(arr,index+1,k-arr[i],list);		
+			subSetSumUtil(arr,i+1,k-arr[i],list);		
 			list.remove(list.size()-1);
 		}
 		
