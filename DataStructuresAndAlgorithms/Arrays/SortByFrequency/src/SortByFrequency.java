@@ -1,6 +1,5 @@
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -8,18 +7,17 @@ public class SortByFrequency {
 
 	public void sort(int[] arr) {
 		
-		/*if linkedhashmap is not allowed we can store frequency as well as index
-		 * in normal hashmap and in Element store key value and index
-		 * and in case of comaparTo for elements with same value
-		 * we can return on the basis of index to maintain stability*/
-		LinkedHashMap<Integer,Integer> map = new LinkedHashMap<Integer, Integer>();
+		/*There is no guarantee about sorting algorithm of Arrays
+		 * it it is QuickSort it will disturb the stability that's why
+		 * maintain the stability using index in comparator*/
+		HashMap<Integer,Element> map = new HashMap<Integer, Element>();
 		
 		countElements(map,arr);
 		//System.out.println(map);
 		Element[] comArray = new Element[map.keySet().size()];
 		int i=0;
 		for(Integer a: map.keySet()) {
-			comArray[i]=new Element(a,map.get(a));
+			comArray[i]=new Element(a,map.get(a).value,map.get(a).index);
 			i++;
 		}
 		Arrays.sort(comArray);
@@ -34,15 +32,17 @@ public class SortByFrequency {
 		}
 	}
 	
-	private void countElements(Map<Integer,Integer> map, int[] arr) {
-		
+	private void countElements(Map<Integer,Element> map, int[] arr) {
+		int i=0;
 		for(int a : arr) {
-			Integer element = map.get(a);
+			
+			Element element = map.get(a);
 			if(element==null) {
-				map.put(a,1);
+				map.put(a,new Element(a,1,i));
 			} else {
-				map.put(a,element+1);
+				map.put(a,new Element(a,element.value+1,i));
 			}
+			i++;
 		}
 	}
 	
@@ -59,15 +59,20 @@ public class SortByFrequency {
 class Element implements Comparable<Element>{
 	int key;
 	int value;
+	int index;
 	
-	public Element(int a, int b) {
+	public Element(int a, int b, int c) {
 		this.key = a;
 		this.value = b;
+		this.index = c;
 	}
 	public Element(){}
 	
 	@Override
 	public int compareTo(Element paramT2) {
-		return paramT2.value - this.value;
+		if(paramT2.value - this.value==0) {
+			return this.index-paramT2.index;
+		} 
+		return paramT2.value-this.value;
 	}
 }

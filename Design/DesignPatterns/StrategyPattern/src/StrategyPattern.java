@@ -4,7 +4,7 @@
  * 2. Favor composition over inheritance
  * 3. Code to interface not implementation
  * 
- * It actually  defines a family of algorithms and encapusalates them and make them
+ * It actually  defines a family of algorithms and encapsulates them and make them
  * interchangeable
  *
  * 
