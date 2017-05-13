@@ -44,6 +44,36 @@ public class PalindromePartitioning {
 		return minCuts[0][str.length()-1];
 	}
 	
+	public int minCutsOptimized(String str) {
+		boolean[][] Pal = new boolean[str.length()][str.length()];
+		int[] Cuts = new int[str.length()];
+		
+		for(int i=0;i<str.length();i++) {
+			Pal[i][i]=true;
+		}
+		
+		for(int l=2;l<=str.length();l++) {
+			
+			for(int i=0;i<=str.length()-l;i++) {
+				int j=i+l-1;
+				
+				Pal[i][j]=(str.charAt(i)==str.charAt(j)) && (Pal[i+1][j-1]);
+			}
+		}
+		
+		for(int i=1;i<str.length();i++) {
+			Cuts[i]=Integer.MAX_VALUE;
+			for(int j=0;j<i;j++) {
+				
+				if(Pal[j+1][i]==true && Cuts[j]+1 < Cuts[i]) {
+					Cuts[i]=Cuts[j]+1;
+				}
+			}
+		}
+		
+		return Cuts[str.length()-1];
+	}
+	
 	public boolean isPalindrome(String str, int i,int j) {
 		while(i<j) {
 			if(str.charAt(i)!=str.charAt(j)) {
@@ -61,6 +91,6 @@ public class PalindromePartitioning {
 		String str = "ababbbabbababa";
 		PalindromePartitioning palindromePartitioning = new PalindromePartitioning();
 		
-		System.out.println(palindromePartitioning.minCuts(str));
+		System.out.println(palindromePartitioning.minCutsOptimized(str));
 	}
 }
