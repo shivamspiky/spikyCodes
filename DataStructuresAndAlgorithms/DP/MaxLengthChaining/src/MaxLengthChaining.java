@@ -8,9 +8,9 @@ public class MaxLengthChaining {
 		}
 		
 		int[] MAX= new int[arr.length];
-		
+		MAX[0]=1;
 		for(int i=1;i<arr.length;i++) {
-			int max = 1;
+			int max = 0;
 			for(int j=i-1;j>=0;j--) {
 				
 				if(arr[j].secondNode < arr[i].firstNode && MAX[j] > max) {
