@@ -3,47 +3,37 @@ package com.matrix.spiral;
 
 public class SpiralPrint {
 
-	public void spiral(int[][] matrix,int m,int n) {
+	public void spiral(int[][] matrix) {
+		int rowNum= matrix.length;
+		int colNum=matrix[0].length;
 		
-		int i=0,j=m-1,k=0,l=n-1,dir=0;
+		int top = 0, bottom = rowNum-1,left = 0, right = colNum-1;
 		
-		while(i<=j&& k<=l) {
+		while(top<=bottom && left<=right) {
 			
-			if(dir==0) {
-				for(int p=k;p<=l;p++) {
-					System.out.print(" "+matrix[i][p]);
-				}
+			for(int i=left ;i<=right;i++) {
+				System.out.print(matrix[top][i]+" ");
+			}
+			top++;
+			
+			for(int i=top ;i<=bottom;i++) {
+				System.out.print(matrix[i][right]+" ");
+			}
+			right--;
+			
+			if(top<=bottom) {
 				
-				i++;
-				dir=1;
+				for(int i=right;i>=left;i--) {
+					System.out.print(matrix[bottom][i]+" ");
+				}
+				bottom--;
 			}
 			
-			if(dir==1) {
-				for(int p=i;p<=j;p++) {
-					System.out.print(" "+matrix[p][l]);
+			if(left<=right) {
+				for(int i=bottom;i>=top;i--) {
+					System.out.print(matrix[i][left]+" ");
 				}
-				
-				l--;
-				dir=2;
-			}
-			
-			if(dir==2) {
-				for(int p=l;p>=k;p--) {
-					System.out.print(" "+matrix[j][p]);
-				}
-				
-				j--;
-				dir=3;
-			}
-			
-			if(dir==3) {
-				
-				for(int p=j;p>=i;p--) {
-					System.out.print(" " + matrix[p][k]);
-				}
-				
-				k++;
-				dir=0;
+				left++;
 			}
 		}
 		
@@ -59,7 +49,23 @@ public class SpiralPrint {
 							{71,81,91,113,17}
 							};
 		
-		print.spiral(matrix, 4, 5);
+		int[][] matrix1 = {
+				{1,2,3,11,14},
+				};
+		
+		int[][] matrix2 = {
+				{1},
+				{2},
+				{3},
+				{4}
+				};
+		
+		print.spiral(matrix);
+		System.out.println();
+		print.spiral(matrix1);
+		System.out.println();
+		print.spiral(matrix2);
+		System.out.println();
 		
 //		for(int i =0 ; i< matrix.length ;i ++) {
 //			System.out.println();

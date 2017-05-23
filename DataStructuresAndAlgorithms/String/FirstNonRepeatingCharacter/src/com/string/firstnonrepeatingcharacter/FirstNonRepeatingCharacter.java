@@ -28,7 +28,7 @@ public class FirstNonRepeatingCharacter {
 			if(count[str.charAt(i)]==null) {
 				count[str.charAt(i)]=new CountWithIndex(1, i);
 			} else {
-				count[str.charAt(i)]=new CountWithIndex(count[str.charAt(i)].count++, i);
+				count[str.charAt(i)].count++;
 			}
 			
 		}
@@ -59,6 +59,6 @@ public class FirstNonRepeatingCharacter {
 	
 	public static void main(String[] args) {
 		FirstNonRepeatingCharacter firstNonRepeatingCharacter = new FirstNonRepeatingCharacter();
-		System.out.println(firstNonRepeatingCharacter.getFirstNonRepeatingInOneSwap("abcdabcef"));
+		System.out.println(firstNonRepeatingCharacter.getFirstNonRepeatingInOneSwap("abcdgabcef"));
 	}
 }
