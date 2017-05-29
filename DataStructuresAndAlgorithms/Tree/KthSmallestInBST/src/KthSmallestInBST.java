@@ -1,25 +1,32 @@
 public class KthSmallestInBST {
 	
-	public boolean inorderMethod(TreeNode root, Count count, Smallest smallest) {
+	/*motivation:
+	 * inorder traversal of bst produces 
+	 * elements in sorted order
+	 * hence we need to return kth element
+	 * visited in inorder traversal
+	 * 
+	 * */
+	public TreeNode inorderMethod(TreeNode root, Count count) {
 		
 		if(root==null) {
-			return false;
+			return root;
 		}
 		
-		if(inorderMethod(root.left,count,smallest)) {
-			return true;
+		TreeNode leftNode = inorderMethod(root.left,count);
+		if(leftNode!=null) {
+			return leftNode;
 		}
-		
 		count.k--;
 		if(count.k==0) {
-			smallest.smallest = root.data;
-			return true;
+			return root;
 		}
-		if(inorderMethod(root.right,count,smallest)) {
-			return true;
+		TreeNode  rightNode = inorderMethod(root.right,count);
+		if(rightNode!=null) {
+			return rightNode;
 		}
 		
-		return false;
+		return null;
 	}
 	
 	public TreeNode recursiveMethod(TreeNode root, int k) {
@@ -76,13 +83,15 @@ public class KthSmallestInBST {
 		root = kthSmallestInBST.insert(root, bnode5);
 		root = kthSmallestInBST.insert(root, bnode6);
 		root = kthSmallestInBST.insert(root, bnode7);
-		Smallest smallest = new Smallest();
-		Count count = new Count(7);
-		System.out.println(kthSmallestInBST.inorderMethod(root, count, smallest));
-		System.out.println(smallest.smallest);
+		
+		Count count = new Count(2);
 		TreeNode node = null;
-		if((node=kthSmallestInBST.recursiveMethod(bnode1, 3)) !=null) {
-			System.out.println(node.data);
+		if((node=kthSmallestInBST.inorderMethod(bnode1, count)) !=null) {
+			System.out.println("Inorder Method " + node.data);
+		}
+		
+		if((node=kthSmallestInBST.recursiveMethod(bnode1, 2)) !=null) {
+			System.out.println("recursive method " + node.data);
 		}
 		
 	}
