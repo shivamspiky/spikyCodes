@@ -35,8 +35,14 @@ public class CheckBalancedTree {
 		Height rheight = new Height();
 		
 		boolean lcheck = isBalancedOptimizedUtil(root.left,lheight);
+		if(!lcheck) {
+			
+			return false;
+		}
 		boolean rcheck = isBalancedOptimizedUtil(root.right,rheight);
-		
+		if(!rcheck) {
+			return false;
+		}
 		height.height = lheight.height > rheight.height ? 1 +  lheight.height : 1 + rheight.height;
 		if(lheight.height-rheight.height >=2 || rheight.height-lheight.height >=2) {
 			return false;
@@ -44,6 +50,8 @@ public class CheckBalancedTree {
 		
 		return lcheck && rcheck;
 	}
+	
+	
 	
 	public int height(TreeNode node) {
 		
@@ -55,7 +63,37 @@ public class CheckBalancedTree {
 		int rheight = height(node.right);
 		
 		return (lheight > rheight ? 1 + lheight: 1 + rheight);
-	} 
+	}
+	/*most optimized method with time complexity O(n) and space complexity 0(n) */
+	public boolean isBalancedHeight(TreeNode root) {
+		
+		if(isBalancedHeightUtil(root)!=-1) {
+			return true;
+		}
+		return false;
+	}
+	
+	private int isBalancedHeightUtil(TreeNode root) {
+		
+		if(root==null) {
+			return 0;
+		}
+		
+		int lheight = isBalancedHeightUtil(root.left);
+		if(lheight==-1) {
+			return -1;
+		}
+		
+		int rheight = isBalancedHeightUtil(root.right);
+		if(rheight==-1) {
+			return -1;
+		}
+		
+		if(Math.abs(lheight-rheight)>1) {
+			return -1;
+		}
+		return lheight > rheight ? 1+lheight : 1 +rheight;
+	}
 	
 	public static void main(String[] args) {
 		TreeNode bnode1 = new TreeNode(26);
@@ -73,11 +111,12 @@ public class CheckBalancedTree {
 		bnode3.left=bnode4;
 		
 		bnode5.left =bnode6;
-		//bnode4.left=bnode6;
-		//bnode4.right = bnode7;
+		bnode4.left=bnode6;
+		bnode4.right = bnode7;
 		
 		CheckBalancedTree checkBalancedTree = new CheckBalancedTree();
 		
+		System.out.println(checkBalancedTree.isBalancedHeight(bnode1));
 		System.out.println(checkBalancedTree.isBalancedOptimized(bnode1));
 	}
 }
