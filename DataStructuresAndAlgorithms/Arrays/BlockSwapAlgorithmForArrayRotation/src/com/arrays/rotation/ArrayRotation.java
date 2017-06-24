@@ -23,7 +23,7 @@ public class ArrayRotation {
 			recursiveBlockSwapUtil(arr,i+(l-k)+1,k-1,k,l);
 		}
 	}
-	
+	/*comment to commit*/
 	private void iterativeBlockSwap(int[] arr, int d) {
 		
 		int i=0,j=d-1,k=d,l=arr.length-1;
