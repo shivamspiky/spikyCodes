@@ -1,5 +1,7 @@
 import java.util.LinkedList;
-
+/*
+* Author : Shivam Kumar
+* */
 public class Graph {
 	int v;
 	LinkedList<Integer>[] adj;
